@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ES2020",
     "module": "commonjs",
-    "lib": [
-      "es2018"
-    ],
+    "lib": ["es2020"],
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -19,12 +17,17 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "baseUrl": ".",
+    "paths": {
+      "@constructs/*": ["lib/constructs/*"],
+      "@lambda-handlers/*": ["functions/handlers/*"],
+      "@lambda-libs/*": ["functions/libs/*"]
+    },
+    "typeRoots": ["./node_modules/@types"]
   },
-  "exclude": [
-    "node_modules",
-    "cdk.out"
-  ]
+  "exclude": ["node_modules", "cdk.out"],
+  "include": ["bin", "lib", "functions"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }

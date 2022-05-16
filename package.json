@@ -2,23 +2,27 @@
   "name": "aws-ledger",
   "version": "0.1.0",
   "bin": {
-    "aws-ledger": "bin/aws-ledger.js"
+    "ledger": "bin/ledger.js"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "deploy": "cdk deploy --require-approval never '*/ledger-stack'",
+    "deploy:dev": "pnpm run deploy -- --context stage=dev",
+    "synth": "cdk synth '*/ledger-stack'"
   },
   "devDependencies": {
     "@types/jest": "^27.5.0",
     "@types/node": "10.17.27",
     "@types/prettier": "2.6.0",
+    "aws-cdk": "2.24.1",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.4",
-    "aws-cdk": "2.24.1",
     "ts-node": "^10.7.0",
-    "typescript": "~3.9.7"
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "~4.6.4"
   },
   "dependencies": {
     "aws-cdk-lib": "2.24.1",
