@@ -5,6 +5,7 @@
     "ledger": "bin/ledger.js"
   },
   "scripts": {
+    "postinstall": "cd functions && pnpm install --frozen-lockfile",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",

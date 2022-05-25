@@ -7,7 +7,6 @@ specifiers:
   aws-cdk: 2.25.0
   aws-cdk-lib: 2.25.0
   constructs: ^10.1.16
-  env-var: ^7.1.1
   esbuild: ^0.14.39
   jest: ^27.5.1
   source-map-support: ^0.5.21
@@ -19,7 +18,6 @@ specifiers:
 dependencies:
   aws-cdk-lib: 2.25.0_constructs@10.1.16
   constructs: 10.1.16
-  env-var: 7.1.1
   source-map-support: 0.5.21
 
 devDependencies:
@@ -1207,11 +1205,6 @@ packages:
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
     dev: true
-
-  /env-var/7.1.1:
-    resolution: {integrity: sha512-4+vvlq+wwGQNwY/nI3/+Ojc1MKHCmITRJ6VWkQzDtMD6fAEb60ACRUCnlIAonMKW9YzqYmYxbyVu9vTb++yNRg==}
-    engines: {node: '>=10'}
-    dev: false
 
   /error-ex/1.3.2:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
