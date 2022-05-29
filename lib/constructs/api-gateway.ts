@@ -8,6 +8,7 @@ type ApiGatewayProps = {
 type AddLambdaIntegrationOptions = aws_apigateway.MethodOptions & {
   path: string
   method: string
+  /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   schema?: any
 }
 
