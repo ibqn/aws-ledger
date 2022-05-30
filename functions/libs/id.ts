@@ -1,3 +1,6 @@
 import hyperid from 'hyperid'
 
-export const generateId = hyperid({ urlSafe: true })
+export const generateId = () => {
+  const generateUniqueId = hyperid({ urlSafe: true })
+  return generateUniqueId()
+}

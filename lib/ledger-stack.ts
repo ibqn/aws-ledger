@@ -4,6 +4,7 @@ import { type Construct } from 'constructs'
 import { ApiGateway } from '@constructs/api-gateway'
 import { Table } from '@constructs/table'
 import { CreateAccountFunction } from '@constructs/functions/create-account'
+import { TransferFundsFunction } from '@constructs/functions/transfer-funds'
 
 type LedgerStackProps = StackProps & {
   stageName: string
@@ -21,5 +22,6 @@ export class LedgerStack extends Stack {
     const table = new Table(this, 'Table')
     const apiGateway = new ApiGateway(this, 'ApiGateway', { stageName })
     new CreateAccountFunction(this, 'CreateAccountFunction', { table, apiGateway })
+    new TransferFundsFunction(this, 'TransferFundsFunction', { table, apiGateway })
   }
 }

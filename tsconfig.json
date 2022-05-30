@@ -3,30 +3,30 @@
     "target": "ES2020",
     "module": "commonjs",
     "lib": ["es2020"],
-    "declaration": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "declaration": false,
     "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": false,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
     "baseUrl": ".",
     "paths": {
       "@constructs/*": ["lib/constructs/*"],
       "@lambda-handlers/*": ["functions/handlers/*"],
       "@lambda-libs/*": ["functions/libs/*"]
-    },
-    "typeRoots": ["./node_modules/@types"]
+    }
   },
-  "exclude": ["node_modules", "cdk.out"],
   "include": ["bin", "lib", "functions"],
+  "exclude": ["node_modules", "cdk.out"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   }
