@@ -20,7 +20,7 @@ const lambdaHandler: lambda.ValidatedAPIGatewayProxyEventHandler<Schema> = async
         pk: `Account#${accountId}`,
         sk: `Account#${accountId}`,
         type: 'Account',
-        insertedAt: Date.now(),
+        insertedAt: new Date().toISOString(),
         name,
         denomination,
       },
