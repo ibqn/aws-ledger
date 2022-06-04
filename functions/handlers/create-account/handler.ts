@@ -23,6 +23,7 @@ const lambdaHandler: lambda.ValidatedAPIGatewayProxyEventHandler<Schema> = async
         insertedAt: new Date().toISOString(),
         name,
         denomination,
+        balance: 0,
       },
     })
     .promise()
