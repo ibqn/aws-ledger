@@ -1,15 +1,15 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@ibqn/eslint-config': ^0.0.1
+  '@ibqn/eslint-config': ^0.0.3
   '@types/jest': ^27.5.0
   '@types/node': ~14.14.31
   '@types/prettier': 2.6.0
   '@typescript-eslint/eslint-plugin': ^5.26.0
   '@typescript-eslint/parser': ^5.26.0
-  aws-cdk: 2.25.0
-  aws-cdk-lib: 2.25.0
-  constructs: ^10.1.16
+  aws-cdk: 2.27.0
+  aws-cdk-lib: 2.27.0
+  constructs: ^10.1.26
   esbuild: ^0.14.39
   eslint: ^8.16.0
   eslint-config-prettier: ^8.5.0
@@ -21,18 +21,18 @@ specifiers:
   typescript: ~4.6.4
 
 dependencies:
-  aws-cdk-lib: 2.25.0_constructs@10.1.16
-  constructs: 10.1.16
+  aws-cdk-lib: 2.27.0_constructs@10.1.26
+  constructs: 10.1.26
   source-map-support: 0.5.21
 
 devDependencies:
-  '@ibqn/eslint-config': 0.0.1_wcndlbu443n2dupq6dphgxm2ym
+  '@ibqn/eslint-config': 0.0.3_wcndlbu443n2dupq6dphgxm2ym
   '@types/jest': 27.5.1
   '@types/node': 14.14.45
   '@types/prettier': 2.6.0
   '@typescript-eslint/eslint-plugin': 5.26.0_gu4clceiw6ditaem5r577qrdpi
   '@typescript-eslint/parser': 5.26.0_utdtartgf6fqqgkivzeynh76la
-  aws-cdk: 2.25.0
+  aws-cdk: 2.27.0
   esbuild: 0.14.39
   eslint: 8.16.0
   eslint-config-prettier: 8.5.0_eslint@8.16.0
@@ -412,9 +412,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@ibqn/eslint-config/0.0.1_wcndlbu443n2dupq6dphgxm2ym:
-    resolution: {integrity: sha512-EqMBfYKqzktJ6qSNbktF2KbqxLOzQ6u5lwwvfgS+AIH3obO04mQ+Ybw6z6fjgMI3w8VBT9TPhQ0luDxjL8Ho+g==, tarball: download/@ibqn/eslint-config/0.0.1/8593b5a1db3718285962a47f9d3e5c4605bf63bdb7dfb9908ed71b6949a150d6}
-    engines: {node: '>=14', npm: '>=8'}
+  /@ibqn/eslint-config/0.0.3_wcndlbu443n2dupq6dphgxm2ym:
+    resolution: {integrity: sha512-Qsj/aQ8eXRdUHeRvDYTNiZSPB6STD5qW1Tjg6z5Dbr4O73tC1MN/VplegvjzKA68v46LvwJeufbBVqO7Q7GoRA==, tarball: download/@ibqn/eslint-config/0.0.3/4572702bce46924730ed73510786758b7671ae0849b7239ffe9a6b4331390a0e}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': 5.x
       '@typescript-eslint/parser': 5.x
@@ -1064,15 +1063,15 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: false
 
-  /aws-cdk-lib/2.25.0_constructs@10.1.16:
-    resolution: {integrity: sha512-rcQeQu/lTmi1tg5DwV0gBqJtF73khApfHt9n7BIHkKbUWvCB50lIL1Q1/7cHvTicfQ62UnwFoPWwB0YqQceDVQ==}
+  /aws-cdk-lib/2.27.0_constructs@10.1.26:
+    resolution: {integrity: sha512-CsTy/+RIBMvP9LlZjkQakkKPpwU50+HAMCMaGOcyIHADDQdXobGcZXTO+Tq00sH2DoQjPV1ZhhBim5z3k/2KXw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       constructs: ^10.0.0
     dependencies:
       '@balena/dockerignore': 1.0.2
       case: 1.6.3
-      constructs: 10.1.16
+      constructs: 10.1.26
       fs-extra: 9.1.0
       ignore: 5.2.0
       jsonschema: 1.4.1
@@ -1092,8 +1091,8 @@ packages:
       - semver
       - yaml
 
-  /aws-cdk/2.25.0:
-    resolution: {integrity: sha512-6NZKDPgCQ0O3xlpk22sR54N4yCvGt2tM2bkKHPrV6n4HCI+a349hsF4xSngiSrHAoaNQKMgAwScpj3GTZcI+oA==}
+  /aws-cdk/2.27.0:
+    resolution: {integrity: sha512-TAKSP4ViFqj+jktFwJl4IE4jZbQCsH32t7L/VcGY71VZV9VqvuzkjF4gGx+hrES+A/dFBtLmPXsumyJu5y0elQ==}
     engines: {node: '>= 14.15.0'}
     hasBin: true
     optionalDependencies:
@@ -1323,8 +1322,8 @@ packages:
   /concat-map/0.0.1:
     resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
 
-  /constructs/10.1.16:
-    resolution: {integrity: sha512-X5jdsYqpQ+d7jQZd1Cwoi5QQLNm3QrRYdVcHMB2WiCzjfjxOhcCELj2jEdJtAYprj5m6wg4hXhSHdCL7Rgj+Ow==}
+  /constructs/10.1.26:
+    resolution: {integrity: sha512-Pvkez/igQ9lQLBNFr0FIHzJ4761XpchLV06lLQH2c0kCA10WqGrKBFOgEchT7260VrNVQQ1uBo7R0szphKYvZw==}
     engines: {node: '>= 14.17.0'}
     dev: false
 
