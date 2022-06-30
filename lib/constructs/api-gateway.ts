@@ -1,4 +1,4 @@
-import { aws_apigateway, aws_lambda } from 'aws-cdk-lib'
+import { aws_apigateway, aws_lambda, CfnOutput, Duration, aws_cloudwatch } from 'aws-cdk-lib'
 import type { Construct } from 'constructs'
 
 type ApiGatewayProps = {
@@ -14,20 +14,47 @@ type AddLambdaIntegrationOptions = aws_apigateway.MethodOptions & {
 
 export class ApiGateway extends aws_apigateway.RestApi {
   readonly requestValidator: aws_apigateway.RequestValidator
+  readonly defaultUsagePlan: aws_apigateway.UsagePlan
 
   constructor(scope: Construct, id: string, props: ApiGatewayProps) {
     const { stageName } = props
 
-    super(scope, id, { deployOptions: { stageName } })
-
-    // Remove once Lambda integration methods are defined
-    this.root.addMethod('ANY')
+    super(scope, id, {
+      deployOptions: { stageName },
+      defaultMethodOptions: {
+        // All methods will require api key authentication
+        apiKeyRequired: true,
+      },
+    })
 
     // Add a request validator
     this.requestValidator = this.addRequestValidator('RequestValidator', {
       validateRequestBody: true,
       validateRequestParameters: true,
     })
+
+    // Add default usage plan for all clients
+    this.defaultUsagePlan = new aws_apigateway.UsagePlan(this, 'DefaultUsagePlan', {
+      name: 'Default',
+      throttle: {
+        rateLimit: 10,
+        burstLimit: 2,
+      },
+      quota: {
+        limit: 1_000,
+        period: aws_apigateway.Period.DAY,
+      },
+    })
+
+    this.defaultUsagePlan.addApiStage({
+      stage: this.deploymentStage,
+    })
+  }
+
+  apiKeyForClient = (clientName: string) => {
+    const apiKey = this.addApiKey(`${clientName}ApiKey`)
+    this.defaultUsagePlan.addApiKey(apiKey)
+    new CfnOutput(this, `${clientName}ApiKeyId`, { value: apiKey.keyId })
   }
 
   addLambdaIntegration = (
@@ -65,5 +92,35 @@ export class ApiGateway extends aws_apigateway.RestApi {
       ...defaultMethodOptions,
       ...methodOptions,
     })
+  }
+
+  monitor = (): Array<aws_cloudwatch.Alarm> => {
+    const alarms: Array<aws_cloudwatch.Alarm> = []
+
+    alarms.push(
+      this.metricClientError()
+        .with({
+          period: Duration.minutes(1),
+        })
+        .createAlarm(this, 'ClientErrorAlarm', {
+          evaluationPeriods: 3,
+          threshold: 3,
+          alarmDescription: 'Over 3 client errors per 1 minute (3 consecutive periods)',
+        })
+    )
+
+    alarms.push(
+      this.metricCount()
+        .with({
+          period: Duration.minutes(1),
+        })
+        .createAlarm(this, 'CountAlarm', {
+          evaluationPeriods: 3,
+          threshold: 100,
+          alarmDescription: 'Over 100 requests per 1 minute',
+        })
+    )
+
+    return alarms
   }
 }

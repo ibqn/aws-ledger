@@ -21,6 +21,8 @@ export class LedgerStack extends Stack {
 
     const table = new Table(this, 'Table')
     const apiGateway = new ApiGateway(this, 'ApiGateway', { stageName })
+    apiGateway.monitor()
+    apiGateway.apiKeyForClient('TestClient')
     new CreateAccountFunction(this, 'CreateAccountFunction', { table, apiGateway })
     new TransferFundsFunction(this, 'TransferFundsFunction', { table, apiGateway })
   }
